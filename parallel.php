@@ -17,6 +17,7 @@ function parallel(
         }
 
         if ($pid == 0) {
+            register_shutdown_function(fn() => posix_kill(getmypid(), 9));
             break;
         }
     }
