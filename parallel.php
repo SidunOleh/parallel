@@ -35,4 +35,5 @@ function parallel(
     ) { 
         $callback($tasks[$i]);
     }
+    die;
 }
