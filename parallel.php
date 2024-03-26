@@ -17,7 +17,6 @@ function parallel(
         }
 
         if ($pid == 0) {
-            register_shutdown_function(fn() => posix_kill(getmypid(), 9));
             break;
         }
     }
@@ -36,5 +35,5 @@ function parallel(
     ) { 
         $callback($tasks[$i]);
     }
-    die;
+    posix_kill(getmypid(), 9);
 }
